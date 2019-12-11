@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import './App.css';
 import { MyContext } from './concepts/context/ex1';
 
-function A() {
+function ContextConsumerComponent() {
+  const context = useContext(MyContext)
+  console.log('using useContext API- context value:', context)
+
   return (
     <div>      
       <MyContext.Consumer>
         {(context) => {
-          console.log('context:', context);
+          console.log('context value:', context);
           return 'In Consumer, The context value is : '+context;
         }}
       </MyContext.Consumer>                  
@@ -16,10 +19,11 @@ function A() {
 }
 
 function App() {
+  const contextValue = 'this is my first context example'
   return (
     <div className="App"> 
-      <MyContext.Provider value='this is my first context example'>     
-        <A />
+      <MyContext.Provider value={contextValue}>     
+        <ContextConsumerComponent />
       </MyContext.Provider>
     </div>
   );
