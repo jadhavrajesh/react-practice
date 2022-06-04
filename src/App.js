@@ -1,30 +1,26 @@
 import React, { useContext } from 'react';
 import './App.css';
-import { MyContext } from './concepts/context/ex1';
+import UseReducer from './concepts/hooks/UseReducer';
+import UseRef from './concepts/hooks/UseRef';
+import CompA from './concepts/context/CompA';
+import UseEffect from './concepts/hooks/UseEffect';
+import UseEffectWithCleanup from './concepts/hooks/UseEffectWithCleanup';
+import UseEffectWithAPIcall from './concepts/hooks/useEffectWithAPIcall';
 
-function ContextConsumerComponent() {
-  const context = useContext(MyContext)
-  console.log('using useContext API- context value:', context)
-
-  return (
-    <div>      
-      <MyContext.Consumer>
-        {(context) => {
-          console.log('context value:', context);
-          return 'In Consumer, The context value is : '+context;
-        }}
-      </MyContext.Consumer>                  
-    </div>
-  );
-}
-
-function App() {
-  const contextValue = 'this is my first context example'
+function App() {  
   return (
     <div className="App"> 
-      <MyContext.Provider value={contextValue}>     
-        <ContextConsumerComponent />
-      </MyContext.Provider>
+      {/* <UseReducer/> */}      
+
+      {/* <UseRef/> */}
+
+      {/* <CompA/> */}
+
+      {/* <UseEffect /> */}
+
+      {/* <UseEffectWithCleanup/> */}
+
+      <UseEffectWithAPIcall/>
     </div>
   );
 }
