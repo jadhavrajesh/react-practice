@@ -24,3 +24,15 @@
 div {
   padding: 10px;
 }
+
+.border-black {
+  border: 1px solid black;
+}
+
+.italic-text {
+  font-style: italic;
+}
+
+.text-color-green {
+  color: royalblue;
+}

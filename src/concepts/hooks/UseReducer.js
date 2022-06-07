@@ -1,27 +1,34 @@
-import React, { useReducer } from 'react';
+import React, { useReducer } from "react";
 
-const initialValue = 0;
-
-const reducerFunc = (state, action) => {
-  if (action.type === "INC") {
-    state += 1;
+function reducerFunction(state, action) {
+  switch (action.type) {
+    case "INC":
+      return { count: state.count + 1 };
+    case "DEC":
+      return { count: state.count - 1 };
+    default:
+      return state;
   }
-  if (action.type === "DEC") {
-    state -= 1;
-  }
-  return state
 }
 
-const UseReducer = () => {
-  const [state, dispatch] = useReducer(reducerFunc, initialValue)
-
+const initialState = { count: 0 };
+function Counter() {
+  const [state, dispatch] = useReducer(reducerFunction, initialState);
   return (
-    <div>
-      <h1>{state}</h1>
-      <button onClick={() => { dispatch({ type: "INC" }) }}>Increment</button>
-      <button onClick={() => { dispatch({ type: "DEC" }) }}>Decrement</button>
-    </div>
-  )
+    <>
+      <h1>Count: {state.count}</h1>
+      <div>
+        <button onClick={() => dispatch({ type: "INC" })}>
+          Increment Counter
+        </button>
+      </div>
+      <div>
+        <button onClick={() => dispatch({ type: "DEC" })}>
+          Decrement Counter
+        </button>
+      </div>
+    </>
+  );
 }
 
-export default UseReducer;
+export default Counter;
