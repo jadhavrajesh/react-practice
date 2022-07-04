@@ -33,6 +33,10 @@ div {
   font-style: italic;
 }
 
-.text-color-green {
-  color: royalblue;
+.text-color-blue {
+  color: blue;
+}
+
+.text-color-red {
+  color: red;
 }

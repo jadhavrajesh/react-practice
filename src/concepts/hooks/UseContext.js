@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 
 const defaultValue = { isLogged: false };
 const UserContext = React.createContext(defaultValue);
 
 function UserProfile({ name }) {
+  const userContextValue = useContext(UserContext);
   return (
     <>
-      <p className="italic-text text-color-blue">UserContext.Consumer is here</p>
-      <UserContext.Consumer>
-        {({ isLogged, name }) =>
-          isLogged ? <p>Hi {name} ![Username is taken from context]</p> : <p>Please login.</p>
-        }
-      </UserContext.Consumer>
+      <p className="italic-text text-color-blue">useContext is used here</p>
+      {userContextValue.isLogged ? (
+        <p>Hi {userContextValue.name} ! [Username is taken from context]</p>
+      ) : (
+        <p>Please login.</p>
+      )}
     </>
   );
 }
@@ -26,11 +27,13 @@ function SharedComponent({ name, children }) {
 }
 
 function Header() {
-  return <>
-    <SharedComponent name="Header">
-      <UserProfile />
-    </SharedComponent>
-  </>
+  return (
+    <>
+      <SharedComponent name="Header">
+        <UserProfile />
+      </SharedComponent>
+    </>
+  );
 }
 
 function Body() {
@@ -46,7 +49,9 @@ function Page() {
   return (
     <div className="border-black">
       <p>This is Page Component</p>
-      <p className="italic-text text-color-blue">UserContext.Provider is here</p>
+      <p className="italic-text text-color-blue">
+        UserContext.Provider is here
+      </p>
       <UserContext.Provider value={contextValue}>
         <Header />
         <Body />

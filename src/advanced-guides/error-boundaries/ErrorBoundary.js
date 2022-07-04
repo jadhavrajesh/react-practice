@@ -18,7 +18,7 @@ class ErrorBoundary extends React.Component {
     const { error, errorInfo } = this.state;
     if (error) {
       return (
-        <div className="border-black">
+        <div className="border-black text-color-red">
           <h1>Inside ErrorBoundary</h1>
           <p>{error.toString()}</p>
           <p>{errorInfo.componentStack}</p>
