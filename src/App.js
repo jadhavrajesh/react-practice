@@ -9,6 +9,7 @@ import CounterExampleUseReducer from "./concepts/hooks/UseReducer";
 import PageWithContextExample from "./advanced-guides/context/PageWithContextExample";
 import SuspenseExample from "./advanced-guides/code-splitting/suspense/SuspenseExample";
 import ErrorBoundary from "./advanced-guides/error-boundaries/ErrorBoundary";
+import PureComponentNotWorks from "./api-reference/PureComponent/PureComponentNotWorks/Example";
 
 function App() {
   return (
@@ -29,11 +30,14 @@ function App() {
 
       {/* ------- Context -------- */}
 
-      <PageWithContextExample/> 
+      {/* <PageWithContextExample/>  */}
 
       {/* <SuspenseExample /> */}
 
       {/* <ErrorBoundary /> */}
+
+      {/* --------- PureComponent --------- */}
+      <PureComponentNotWorks />      
     </div>
   );
 }
