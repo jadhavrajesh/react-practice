@@ -1,37 +1,27 @@
 import React, { useRef, useState } from "react";
 
-const UseRef = () => {
-  const nameRef = useRef(null)
-  const [show, setShow] = useState(false)
-
-  const submitForm = (e) => {
-    e.preventDefault();
-    
-    const name = nameRef.current.value
-
-    if (name === "") {
-      alert("please fill the details")
-      setShow(false)
-    }
-    else {
-      setShow(true)
-    }
-  }
+const UseRefExample = () => {
+  const nameRef = useRef(null);
+  
+  const focusInput = (e) => {
+    e.preventDefault();    
+    nameRef.current.focus();
+  };
 
   return (
     <>
-      <form onSubmit={submitForm}>
-      
+      <form>
         <label htmlFor="name"></label>
-        <input type="text" name="name" ref={nameRef} />
-        
-        <button>Submit</button>
-
+        <input
+          type="text"
+          name="name"
+          ref={nameRef}
+          placeholder="Enter your name"
+        />
+        <button onClick={focusInput}>Click here to focus the input</button>        
       </form>
-
-      <p>{show ? nameRef.current.value : ""}</p>
     </>
-  )
-}
+  );
+};
 
-export default UseRef;
+export default UseRefExample;

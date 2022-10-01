@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
+// this is Error Boundary component that cathces the error in componentDidCatch & shows on the page.
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -29,6 +30,7 @@ class ErrorBoundary extends React.Component {
   }
 }
 
+// this is Buggy Component that throws a error & it is wrapped under Error Boundary component
 class BuggyComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -49,16 +51,12 @@ class BuggyComponent extends React.Component {
     return (
       <div className="border-black">
         <h1 className="italic-text">Inside BuggyComponent</h1>
-        <button
-          onClick={this.handleClick}
-          disabled={!!this.state.buttonClicked}
-        >
-          Click here
-        </button>
+        <button onClick={this.handleClick}>Click here</button>
       </div>
     );
   }
 }
+
 function Widget() {
   return (
     <ErrorBoundary>
