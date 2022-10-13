@@ -23,6 +23,8 @@ import ProfilerExample from "./advanced-guides/profiler/ProfilerExample";
 import PortalsExample from "./advanced-guides/portals/PortalsExample";
 import WithoutPortalModal from "./advanced-guides/portals/WithoutPortalModal";
 import WithPortalModal from "./advanced-guides/portals/WithPortalModal";
+import WithoutUseCallback from "./concepts/hooks/useCallback/WithoutUseCallback";
+import WithUseCallback from "./concepts/hooks/useCallback/WithUseCallback";
 
 function App() {
   return (
@@ -42,12 +44,16 @@ function App() {
 
       {/* <UseContextExample /> */}
 
+      {/* <WithoutUseCallback/> */}
+
+      {/* <WithUseCallback /> */}
+
       {/* ------- Context -------- */}
       {/* <PageWithContextExample/>  */}
 
       {/* <SuspenseExample /> */}
 
-      {/* <ErrorBoundary /> */}
+      <ErrorBoundary />
 
       {/* --------- PureComponent --------- */}
       {/* <PureComponentNotWorks />       */}
@@ -66,9 +72,8 @@ function App() {
 
       {/* --------- Portals  --------- */}
       {/* <PortalsExample /> */}
-      
-      <WithoutPortalModal/>
-      {/* <WithPortalModal/> */}
+      {/* <WithoutPortalModal/> */}
+      {/* <WithPortalModal/>       */}
     </div>
   );
 }

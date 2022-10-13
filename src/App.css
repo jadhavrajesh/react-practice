@@ -1,17 +1,21 @@
+/* common */
+.text-align-center {
+  text-align: center;
+}
 .border-black {
   border: 1px solid black;
 }
-
 .italic-text {
   font-style: italic;
 }
-
 .text-color-blue {
   color: blue;
 }
-
 .text-color-red {
   color: red;
+}
+.margin-20px {
+  margin: 20px;
 }
 
 /* WithoutPortalModal.js & WithPortalModal.js */
@@ -20,7 +24,6 @@
   max-width: 400px;
   border: 1px solid black;
 }
-
 .portal_modal {
   position: absolute;
   border: 1px solid red;

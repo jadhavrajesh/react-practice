@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // this is Modal component
 const Modal = ({ closeModalHandle, children }) => {
   return (
-    <div className="portal_modal">
+    <div className="portal-modal">
       {children}
       <hr />
       <button onClick={closeModalHandle}>Close</button>
@@ -23,9 +23,9 @@ const Page = () => {
   };
 
   return (
-    <div className="portal_page_component">
+    <div className="portal-page-component">
       {/* In the App.css we have added style for this "div" as
-        .portal_page_component {  
+        .portal-page-component {  
           position: relative;
           max-width: 400px;
         }

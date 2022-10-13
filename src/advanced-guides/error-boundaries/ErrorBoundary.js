@@ -1,28 +1,32 @@
 import React from "react";
 
-// this is Error Boundary component that cathces the error in componentDidCatch & shows on the page.
+// this is Error Boundary component that catches the error in componentDidCatch & shows on the page.
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      errorInfo: null,
+      error: null
     };
   }
 
   componentDidCatch(error, errorInfo) {
     // catch error here or send error to error logging/reporting service
-    this.setState({ error, errorInfo });
+    console.log(error);
+    console.log(errorInfo);
+  }
+
+  static getDerivedStateFromError(error) {
+    // invoked after an error has been thrown & it should return a value to update the state
+    return error;
   }
 
   render() {
-    const { error, errorInfo } = this.state;
+    const { error } = this.state;
     if (error) {
       return (
         <div className="border-black text-color-red">
           <h1>Inside ErrorBoundary</h1>
           <p>{error.toString()}</p>
-          <p>{errorInfo.componentStack}</p>
         </div>
       );
     }

@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 // this is Modal component which uses Portals to show the Modal
 const Modal = ({ closeModalHandle, children }) => {
   return ReactDOM.createPortal(
-    <div className="portal_modal">
+    <div className="portal-modal">
       {children}
       <hr />
       <button onClick={closeModalHandle}>Close</button>
@@ -25,7 +25,7 @@ const Page = () => {
   };
 
   return (
-    <div className="portal_page_component">
+    <div className="portal-page-component">
       <p>This is the Page Component</p>
       <hr />
       <button onClick={showModalHandle}>Show Modal</button>
