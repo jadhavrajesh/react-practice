@@ -3,7 +3,11 @@ import React, { useCallback, useState } from "react";
 // optimize the component - wrap the component inside React.memo()
 const Title = React.memo(() => {
   console.log("Rendering Title");
-  return <h1>useCallback hook example (open the dev-tool & check the console tab)</h1>;
+  return (
+    <h1>
+      useCallback hook example (open the dev-tool & check the console tab)
+    </h1>
+  );
 });
 
 const Count = React.memo(({ text, count }) => {

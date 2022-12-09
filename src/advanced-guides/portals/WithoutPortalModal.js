@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 // this is Modal component
-const Modal = ({ closeModalHandle, children }) => {
+const Modal = ({ handleModal, children }) => {
   return (
     <div className="portal-modal">
       {children}
       <hr />
-      <button onClick={closeModalHandle}>Close</button>
+      <button onClick={() => handleModal(false)}>Close</button>
     </div>
   );
 };
@@ -14,12 +14,8 @@ const Modal = ({ closeModalHandle, children }) => {
 const Page = () => {
   const [isOpen, setOpen] = useState(false);
 
-  const showModalHandle = () => {
-    setOpen(true);
-  };
-
-  const closeModalHandle = () => {
-    setOpen(false);
+  const handleModal = (modalState) => {
+    setOpen(modalState);
   };
 
   return (
@@ -30,14 +26,14 @@ const Page = () => {
           max-width: 400px;
         }
         And the Modal is a child of above "div" & due to above style,
-        the Modal also has the above stlye applied & it messes up the UI
+        the Modal also has the above style applied & it messes up the UI
       */}
 
       <p>This is the Page Component</p>
       <hr />
-      <button onClick={showModalHandle}>Show Modal</button>
+      <button onClick={() => handleModal(true)}>Show Modal</button>
       {isOpen && (
-        <Modal closeModalHandle={closeModalHandle}>
+        <Modal handleModal={handleModal}>
           <p>This is the Modal</p>
         </Modal>
       )}

@@ -19,20 +19,20 @@ const Count = ({ text, count }) => {
   );
 };
 
-const Button = ({ clickHandler, children }) => {
+const Button = ({ handleClick, children }) => {
   console.log(`Rendering button - ${children}`);
-  return <button onClick={clickHandler}>{children}</button>;
+  return <button onClick={handleClick}>{children}</button>;
 };
 
 const ParentComponent = () => {
   const [age, setAge] = useState(30);
   const [salary, setSalary] = useState(30000);
 
-  const incrementAge = () => {
+  const handleIncrementAge = () => {
     setAge(age + 1);
   };
 
-  const incrementSalary = () => {
+  const handleIncrementSalary = () => {
     setSalary(salary + 1000);
   };
 
@@ -41,10 +41,10 @@ const ParentComponent = () => {
       <Title />
 
       <Count text="Age" count={age} />
-      <Button clickHandler={incrementAge}>Increment Age</Button>
+      <Button handleClick={handleIncrementAge}>Increment Age</Button>
 
       <Count text="Salary" count={salary} />
-      <Button clickHandler={incrementSalary}>Increment Salary</Button>
+      <Button handleClick={handleIncrementSalary}>Increment Salary</Button>
     </>
   );
 };

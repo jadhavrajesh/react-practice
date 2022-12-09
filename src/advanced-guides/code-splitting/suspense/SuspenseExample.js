@@ -1,7 +1,8 @@
 import React, { Suspense } from "react";
 
-// this compoenent is loaded dynamically
+// this component is loaded dynamically
 const OtherComponent = React.lazy(() => {
+  // dynamic import
   return import("./OtherComponent");
 });
 

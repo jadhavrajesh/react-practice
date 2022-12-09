@@ -11,14 +11,8 @@ import PageWithContextExample from "./advanced-guides/context/PageWithContextExa
 import SuspenseExample from "./advanced-guides/code-splitting/suspense/SuspenseExample";
 import ErrorBoundary from "./advanced-guides/error-boundaries/ErrorBoundary";
 import PureComponentNotWorks from "./api-reference/PureComponent/PureComponentNotWorks/Example";
-import {
-  ClickCounter,
-  HoverCounter,
-} from "./advanced-guides/hoc/couter-example/WithoutHOCExample";
-import {
-  ClickCounterHOC,
-  HoverCounterHOC,
-} from "./advanced-guides/hoc/couter-example/WithHOCExample";
+import WithoutHOCCounter from "./advanced-guides/hoc/couter-example/WithoutHOCExample";
+import WithHOCCounter from "./advanced-guides/hoc/couter-example/WithHOCExample";
 import ProfilerExample from "./advanced-guides/profiler/ProfilerExample";
 import PortalsExample from "./advanced-guides/portals/PortalsExample";
 import WithoutPortalModal from "./advanced-guides/portals/WithoutPortalModal";
@@ -32,11 +26,11 @@ function App() {
       {/* <HandlingEvents /> */}
 
       {/* ------- Hooks -------- */}
-      {/* <UseRef/>      */}
+      {/* <UseRef /> */}
 
       {/* <UseEffect /> */}
 
-      {/* <UseEffectWithCleanup/> */}
+      {/* <UseEffectWithCleanup /> */}
 
       {/* <UseEffectWithAPIcall/> */}
 
@@ -53,27 +47,24 @@ function App() {
 
       {/* <SuspenseExample /> */}
 
-      <ErrorBoundary />
+      {/* <ErrorBoundary /> */}
 
       {/* --------- PureComponent --------- */}
       {/* <PureComponentNotWorks />       */}
 
-      {/* --------- Without HOC  --------- */}
-      {/* <ClickCounter />
-      <HoverCounter /> */}
+      {/* ---------  Without HOC Counter --------- */}
+      {/* <WithoutHOCCounter /> */}
 
-      {/* --------- With HOC  --------- */}
-
-      {/* <ClickCounterHOC name={"Rajesh"} />
-      <HoverCounterHOC name={"Rajesh"} /> */}
+      {/* --------- With HOC Counter --------- */}
+      {/* <WithHOCCounter /> */}
 
       {/* --------- Profiler API  --------- */}
       {/* <ProfilerExample /> */}
 
       {/* --------- Portals  --------- */}
       {/* <PortalsExample /> */}
-      {/* <WithoutPortalModal/> */}
-      {/* <WithPortalModal/>       */}
+      {/* <WithoutPortalModal /> */}
+      <WithPortalModal />
     </div>
   );
 }

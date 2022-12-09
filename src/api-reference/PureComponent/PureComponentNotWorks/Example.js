@@ -25,7 +25,7 @@ class WordAdder extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleClick} >Click here</button>
+        <button onClick={this.handleClick}>Click here</button>
         <ListOfWords words={this.state.words} />
       </div>
     );

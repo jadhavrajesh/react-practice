@@ -7,6 +7,7 @@ const UserContext = React.createContext(defaultValue);
 function UserProfile() {
   return (
     <div className="border-black margin-20px">
+      <h1>This is UserProfile Component</h1>
       <p className="italic-text text-color-blue">
         UserContext.Consumer is here
       </p>
@@ -22,7 +23,16 @@ function UserProfile() {
               </button>
             </>
           ) : (
-            <p>Please login.</p>
+            <>
+              <p>Please login.</p>
+              <button
+                onClick={() =>
+                  setContextValue({ isLogged: true, name: "Rajesh" })
+                }
+              >
+                Login
+              </button>
+            </>
           )
         }
       </UserContext.Consumer>
@@ -30,52 +40,27 @@ function UserProfile() {
   );
 }
 
-function SharedComponent({ name, children }) {
+function Header() {
   return (
-    <div className="border-black margin-20px">
-      <h1>This is {name} Component</h1>
+    <div className="border-black text-align-center margin-20px">
+      <h1>This is Header Component</h1>
+      <ProfileWidget>
+        {/* Consumer component is used here */}
+        <UserProfile />
+      </ProfileWidget>
+    </div>
+  );
+}
+
+function ProfileWidget({ children }) {
+  return (
+    <div className="border-black text-align-center margin-20px">
+      <h1>This is ProfileWidget Component</h1>
       {children}
     </div>
   );
 }
 
-function Header() {
-  return (
-    <>
-      <SharedComponent name="Header">
-        {/* Consumer component is used here */}
-        <UserProfile />
-      </SharedComponent>
-    </>
-  );
-}
-
-function Body() {
-  return <SharedComponent name="Body" />;
-}
-
-function Footer() {
-  return (
-    <SharedComponent name="Footer">
-      <p className="italic-text text-color-blue">
-        UserContext.Consumer is here
-      </p>
-      <UserContext.Consumer>
-        {({ contextValue }) => {
-          return (
-            <p>
-              Current logged in user is {contextValue.name}. ![Name is taken
-              from context]
-            </p>
-          );
-        }}
-      </UserContext.Consumer>     
-    </SharedComponent>
-  );
-}
-
-// this is a page component that has childrens as Header, Body, Footer
-// & those childrens have wrapped inside the Context Provider which actually provides context values to them
 function Page() {
   const initialValue = { isLogged: true, name: "Rajesh" };
   const [contextValue, setContextValue] = useState(initialValue);
@@ -88,8 +73,6 @@ function Page() {
       </p>
       <UserContext.Provider value={{ contextValue, setContextValue }}>
         <Header />
-        <Body />
-        <Footer />
       </UserContext.Provider>
     </div>
   );

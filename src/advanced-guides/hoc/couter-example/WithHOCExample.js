@@ -1,44 +1,55 @@
 import React, { useState } from "react";
 
-const ClickCounter = ({ name, count, incrementHandler }) => {
+const ClickCounter = ({ name, count, handleIncrement }) => {
   return (
     <div>
-      <button onClick={incrementHandler}>
+      <button onClick={handleIncrement}>
         {name} clicked {count} times
       </button>
     </div>
   );
 };
 
-const HoverCounter = ({ name, count, incrementHandler }) => {
+const HoverCounter = ({ name, count, handleIncrement }) => {
   return (
     <div>
-      <h1 onMouseOver={incrementHandler}>
+      <p onMouseOver={handleIncrement}>
         {name} hovered {count} times
-      </h1>
+      </p>
     </div>
   );
 };
 
 // this is Counter HOC
-const withCounter = (WrappedComponent, incrementNumber) => {
+const withCounterHOC = (WrappedComponent, incrementBy) => {
+  // create new Component here
   const WithCounter = (props) => {
     const [count, setCount] = useState(0);
-    const incrementHandler = () => {
-      setCount((prevState) => prevState + incrementNumber);
+    const handleIncrement = () => {
+      setCount((prevState) => prevState + incrementBy);
     };
     return (
       <WrappedComponent
         count={count}
-        incrementHandler={incrementHandler}
+        handleIncrement={handleIncrement}
         {...props}
       />
     );
   };
+  // return new component
   return WithCounter;
 };
 
-const ClickCounterHOC = withCounter(ClickCounter, 5);
-const HoverCounterHOC = withCounter(HoverCounter, 10);
+const ClickCounterHOC = withCounterHOC(ClickCounter, 1);
+const HoverCounterHOC = withCounterHOC(HoverCounter, 1);
 
-export { ClickCounterHOC, HoverCounterHOC };
+function CounterContainer() {
+  return (
+    <>
+      <ClickCounterHOC name="ClickCounterHOC" />
+      <HoverCounterHOC name="HoverCounterHOC" />
+    </>
+  );
+}
+
+export default CounterContainer;

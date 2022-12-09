@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 // this is Modal component which uses Portals to show the Modal
-const Modal = ({ closeModalHandle, children }) => {
+const Modal = ({ handleModal, children }) => {
   return ReactDOM.createPortal(
     <div className="portal-modal">
       {children}
       <hr />
-      <button onClick={closeModalHandle}>Close</button>
+      <button onClick={() => handleModal(false)}>Close</button>
     </div>,
     document.getElementById("portal-root")
   );
@@ -16,21 +16,17 @@ const Modal = ({ closeModalHandle, children }) => {
 const Page = () => {
   const [isOpen, setOpen] = useState(false);
 
-  const showModalHandle = () => {
-    setOpen(true);
-  };
-
-  const closeModalHandle = () => {
-    setOpen(false);
+  const handleModal = (modalState) => {
+    setOpen(modalState);
   };
 
   return (
-    <div className="portal-page-component">
+    <div>
       <p>This is the Page Component</p>
       <hr />
-      <button onClick={showModalHandle}>Show Modal</button>
+      <button onClick={() => handleModal(true)}>Show Modal</button>
       {isOpen && (
-        <Modal closeModalHandle={closeModalHandle}>
+        <Modal handleModal={handleModal}>
           <p>This is the Modal</p>
         </Modal>
       )}

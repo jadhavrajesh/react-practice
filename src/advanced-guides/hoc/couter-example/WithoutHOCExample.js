@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 
-// requirement
+// Scenario
 // 1. User clicks on count button then it will increment the count
 // 2. User hovers on Heading then it will increment the count
-// 3. User key-presses inside the input field & it will increment the count
+// 3. User key-presses inside the input field & it will increment the count (not implementd in this example)
 
 const ClickCounter = () => {
   const [count, setCount] = useState(0);
 
-  const incrementHandler = () => {
+  const handleIncrement = () => {
     setCount((prevState) => setCount(prevState + 1));
   };
 
   return (
     <div>
-      <button onClick={incrementHandler}>clicked {count} times</button>
+      <button onClick={handleIncrement}>clicked {count} times</button>
     </div>
   );
 };
@@ -22,15 +22,24 @@ const ClickCounter = () => {
 const HoverCounter = () => {
   const [count, setCount] = useState(0);
 
-  const incrementHandler = () => {
+  const handleIncrement = () => {
     setCount((prevState) => setCount(prevState + 1));
   };
 
   return (
     <div>
-      <h1 onMouseOver={incrementHandler}>hovered {count} times</h1>
+      <p onMouseOver={handleIncrement}>hovered {count} times</p>
     </div>
   );
 };
 
-export { ClickCounter, HoverCounter };
+function CounterContainer() {
+  return (
+    <>
+      <ClickCounter />
+      <HoverCounter />
+    </>
+  );
+}
+
+export default CounterContainer;

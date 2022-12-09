@@ -5,7 +5,7 @@ class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null
+      error: null,
     };
   }
 
@@ -53,8 +53,8 @@ class BuggyComponent extends React.Component {
     }
 
     return (
-      <div className="border-black">
-        <h1 className="italic-text">Inside BuggyComponent</h1>
+      <div className="text-align-center border-black">
+        <p className="italic-text">Inside BuggyComponent</p>
         <button onClick={this.handleClick}>Click here</button>
       </div>
     );
@@ -64,7 +64,7 @@ class BuggyComponent extends React.Component {
 function Widget() {
   return (
     <ErrorBoundary>
-      <h1>Inside Widget Component</h1>
+      <h1 className="text-align-center">Inside Widget Component</h1>
       <BuggyComponent />
     </ErrorBoundary>
   );

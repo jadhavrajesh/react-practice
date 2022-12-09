@@ -19,12 +19,12 @@
 }
 
 /* WithoutPortalModal.js & WithPortalModal.js */
-.portal_page_component {
+.portal-page-component {
   position: relative;
   max-width: 400px;
   border: 1px solid black;
 }
-.portal_modal {
+.portal-modal {
   position: absolute;
   border: 1px solid red;
   top: 20px;
