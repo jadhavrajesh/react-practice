@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import HandlingEvents from "./main-concepts/handling-events/HandlingEvents";
 import UseEffect from "./concepts/hooks/UseEffect";
@@ -13,6 +13,8 @@ import ErrorBoundary from "./advanced-guides/error-boundaries/ErrorBoundary";
 import PureComponentNotWorks from "./api-reference/PureComponent/PureComponentNotWorks/Example";
 import WithoutHOCCounter from "./advanced-guides/hoc/couter-example/WithoutHOCExample";
 import WithHOCCounter from "./advanced-guides/hoc/couter-example/WithHOCExample";
+import WithoutHOCSearch from "./advanced-guides/hoc/search-input-example/WithoutHOC/Container";
+import WithHOCSearch from "./advanced-guides/hoc/search-input-example/WithHOC/Container";
 import ProfilerExample from "./advanced-guides/profiler/ProfilerExample";
 import PortalsExample from "./advanced-guides/portals/PortalsExample";
 import WithoutPortalModal from "./advanced-guides/portals/WithoutPortalModal";
@@ -52,11 +54,16 @@ function App() {
       {/* --------- PureComponent --------- */}
       {/* <PureComponentNotWorks />       */}
 
+      {/* --------- HOC Examples - START --------- */}
       {/* ---------  Without HOC Counter --------- */}
       {/* <WithoutHOCCounter /> */}
 
       {/* --------- With HOC Counter --------- */}
       {/* <WithHOCCounter /> */}
+
+      {/* <WithoutHOCSearch /> */}
+      <WithHOCSearch />
+      {/* --------- HOC Examples - END --------- */}
 
       {/* --------- Profiler API  --------- */}
       {/* <ProfilerExample /> */}
@@ -64,7 +71,7 @@ function App() {
       {/* --------- Portals  --------- */}
       {/* <PortalsExample /> */}
       {/* <WithoutPortalModal /> */}
-      <WithPortalModal />
+      {/* <WithPortalModal /> */}
     </div>
   );
 }
